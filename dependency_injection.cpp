@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include <random>
-#include <memory>
+
 
 class InnerClass
 {
