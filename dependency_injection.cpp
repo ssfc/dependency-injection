@@ -9,7 +9,7 @@ class InnerClass {
 public:
     InnerClass(std::mt19937& gen) : randGen(gen) {}
 
-    void doSomething() {
+    void inner_generate() {
         std::uniform_int_distribution<int> dist(1, 100);
         std::cout << "InnerClass random number: " << dist(randGen) << std::endl;
     }
@@ -28,7 +28,7 @@ public:
     void outer_generate() {
         std::uniform_int_distribution<int> dist(1, 100);
         std::cout << "OuterClass random number: " << dist(randGen) << std::endl;
-        inner.doSomething();
+        inner.inner_generate();
     }
 
 private:
