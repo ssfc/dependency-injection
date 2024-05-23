@@ -36,8 +36,8 @@ private:
 int main() {
     std::mt19937 gen(42);  // 使用固定种子42初始化随机数生成器
 
-    OuterClass outer(gen);
-    outer.doSomething();
+    OuterClass outer_class(gen);
+    outer_class.doSomething();
 
     return 0;
 }
