@@ -1,0 +1,8 @@
+# 默认忽略的文件
+# git rm -r --cached .vs/
+.idea/
+.vs/
+!.vs/launch.vs.json
+.vscode/
+cmake-build-debug/
+out/
