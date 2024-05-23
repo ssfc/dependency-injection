@@ -27,12 +27,12 @@ class OuterClass
 {
 private:
     std::mt19937& randGen;
-    InnerClass inner;
+    InnerClass inner_class;
 
 public:
     OuterClass(std::mt19937& gen) :
-    randGen(gen),
-    inner(gen)
+            randGen(gen),
+            inner_class(gen)
     {}
 
     void outer_generate()
@@ -40,7 +40,7 @@ public:
         std::uniform_int_distribution<int> dist(1, 100);
         std::cout << "OuterClass random number: " << dist(randGen) << std::endl;
 
-        inner.inner_generate();
+        inner_class.inner_generate();
     }
 };
 
