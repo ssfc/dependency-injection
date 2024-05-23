@@ -5,35 +5,43 @@
 #include <random>
 #include <memory>
 
-class InnerClass {
-public:
-    InnerClass(std::mt19937& gen) : randGen(gen) {}
+class InnerClass
+{
+private:
+    std::mt19937& randGen;
 
-    void inner_generate() {
+public:
+    InnerClass(std::mt19937& gen)
+    : randGen(gen)
+    {}
+
+    void inner_generate()
+    {
         std::uniform_int_distribution<int> dist(1, 100);
         std::cout << "InnerClass random number: " << dist(randGen) << std::endl;
     }
-
-private:
-    std::mt19937& randGen;
 };
 
-class OuterClass {
+
+class OuterClass
+{
+private:
+    std::mt19937& randGen;
+    InnerClass inner;
+
 public:
     OuterClass(std::mt19937& gen) :
     randGen(gen),
     inner(gen)
     {}
 
-    void outer_generate() {
+    void outer_generate()
+    {
         std::uniform_int_distribution<int> dist(1, 100);
         std::cout << "OuterClass random number: " << dist(randGen) << std::endl;
+
         inner.inner_generate();
     }
-
-private:
-    std::mt19937& randGen;
-    InnerClass inner;
 };
 
 int main() {
