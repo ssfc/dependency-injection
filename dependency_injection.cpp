@@ -20,9 +20,12 @@ private:
 
 class OuterClass {
 public:
-    OuterClass(std::mt19937& gen) : randGen(gen), inner(gen) {}
+    OuterClass(std::mt19937& gen) :
+    randGen(gen),
+    inner(gen)
+    {}
 
-    void doSomething() {
+    void outer_generate() {
         std::uniform_int_distribution<int> dist(1, 100);
         std::cout << "OuterClass random number: " << dist(randGen) << std::endl;
         inner.doSomething();
@@ -37,7 +40,7 @@ int main() {
     std::mt19937 gen(42);  // 使用固定种子42初始化随机数生成器
 
     OuterClass outer_class(gen);
-    outer_class.doSomething();
+    outer_class.outer_generate();
 
     return 0;
 }
